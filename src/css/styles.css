@@ -1,0 +1,704 @@
+#Clouds {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    height: 30%;
+    overflow: hidden;
+    animation: FadeIn 3s ease-out;
+    user-select: none;
+}
+
+@keyframes FadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.Cloud {
+    position: absolute;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    height: 70px;
+    animation-duration: 120s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-name: Float, FadeFloat;
+    z-index: 1;
+}
+
+.Cloud.Foreground {
+    height: 10%;
+    min-height: 20px;
+    z-index: 3;
+}
+
+.Cloud.Background {
+    height: 9.09091%;
+    min-height: 8px;
+    animation-duration: 210s;
+}
+
+@keyframes Float {
+    from {
+        transform: translateX(100%) translateZ(0);
+    }
+
+    to {
+        transform: translateX(-15%) translateZ(0);
+    }
+}
+
+/*
+  @keyframes Float {
+    from { transform: translateX(100%) translateY(-100%) translateZ(0); }
+    50% { transform: translateX(55%) translateY(0) translateZ(0); }
+    to { transform: translateX(-5%) translateY(-100%) translateZ(0); }
+  }
+  */
+@keyframes FadeFloat {
+    0%, 100% {
+        opacity: 0;
+    }
+
+    5%, 90% {
+        opacity: 1;
+    }
+}
+
+.Cloud:nth-child(10) {
+    animation-delay: -184.61538s;
+    top: 60%;
+}
+
+.Cloud.Foreground:nth-child(10) {
+    animation-duration: 80s;
+    height: 35%;
+}
+
+.Cloud.Background:nth-child(10) {
+    animation-duration: 110s;
+    height: -3.40909%;
+}
+
+.Cloud:nth-child(9) {
+    animation-delay: -166.15385s;
+    top: 54%;
+}
+
+.Cloud.Foreground:nth-child(9) {
+    animation-duration: 84s;
+    height: 32.5%;
+}
+
+.Cloud.Background:nth-child(9) {
+    animation-duration: 114s;
+    height: -2.15909%;
+}
+
+.Cloud:nth-child(8) {
+    animation-delay: -147.69231s;
+    top: 48%;
+}
+
+.Cloud.Foreground:nth-child(8) {
+    animation-duration: 88s;
+    height: 30%;
+}
+
+.Cloud.Background:nth-child(8) {
+    animation-duration: 118s;
+    height: -0.90909%;
+}
+
+.Cloud:nth-child(7) {
+    animation-delay: -129.23077s;
+    top: 42%;
+}
+
+.Cloud.Foreground:nth-child(7) {
+    animation-duration: 92s;
+    height: 27.5%;
+}
+
+.Cloud.Background:nth-child(7) {
+    animation-duration: 122s;
+    height: 0.34091%;
+}
+
+.Cloud:nth-child(6) {
+    animation-delay: -110.76923s;
+    top: 36%;
+}
+
+.Cloud.Foreground:nth-child(6) {
+    animation-duration: 96s;
+    height: 25%;
+}
+
+.Cloud.Background:nth-child(6) {
+    animation-duration: 126s;
+    height: 1.59091%;
+}
+
+.Cloud:nth-child(5) {
+    animation-delay: -92.30769s;
+    top: 30%;
+}
+
+.Cloud.Foreground:nth-child(5) {
+    animation-duration: 100s;
+    height: 22.5%;
+}
+
+.Cloud.Background:nth-child(5) {
+    animation-duration: 130s;
+    height: 2.84091%;
+}
+
+.Cloud:nth-child(4) {
+    animation-delay: -73.84615s;
+    top: 24%;
+}
+
+.Cloud.Foreground:nth-child(4) {
+    animation-duration: 104s;
+    height: 20%;
+}
+
+.Cloud.Background:nth-child(4) {
+    animation-duration: 134s;
+    height: 4.09091%;
+}
+
+.Cloud:nth-child(3) {
+    animation-delay: -55.38462s;
+    top: 18%;
+}
+
+.Cloud.Foreground:nth-child(3) {
+    animation-duration: 108s;
+    height: 17.5%;
+}
+
+.Cloud.Background:nth-child(3) {
+    animation-duration: 138s;
+    height: 5.34091%;
+}
+
+.Cloud:nth-child(2) {
+    animation-delay: -36.92308s;
+    top: 12%;
+}
+
+.Cloud.Foreground:nth-child(2) {
+    animation-duration: 112s;
+    height: 15%;
+}
+
+.Cloud.Background:nth-child(2) {
+    animation-duration: 142s;
+    height: 6.59091%;
+}
+
+.Cloud {
+    fill: #1c92d2;
+}
+
+.basket-grid {
+    display: table;
+    width: 100%;
+    border-collapse: separate;
+    margin: 0;
+    table-layout: fixed;
+    background: lightgray;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.basket-grid [class^="cell"] {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    display: table-cell;
+    border: 1px solid #ededed;
+    border-width: 2px 1px 0 0;
+    font-weight: inherit;
+    width: 60px;
+    height: 24px;
+    line-height: 24px;
+    background: transparent;
+    border-right-color: transparent;
+    cursor: pointer;
+    transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s;
+}
+
+.basket-grid [class^="cell"] span {
+    font-weight: bold;
+    color: #000;
+    position: relative;
+    z-index: 1001;
+}
+
+[class^="row"] {
+    display: table-row;
+    text-align: center;
+}
+
+[class^="row"].rates-selected {
+    background: #464646;
+    color: #fff;
+}
+
+.cell-target {
+    background: rgba(255, 244, 0, 0.2);
+    position: absolute;
+    border: 2px solid #fff400;
+    top: 1px;
+    left: 1px;
+    height: 0;
+    width: 0;
+    z-index: 100;
+    content: " ";
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    pointer-events: none;
+    transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s;
+}
+
+.cell-0 {
+    left: 0px;
+    top: 24px;
+}
+
+.cell-1 {
+    left: 60px;
+    top: 24px;
+}
+
+.cell-2 {
+    left: 120px;
+    top: 24px;
+}
+
+.cell-3 {
+    left: 180px;
+    top: 24px;
+}
+
+.cell-4 {
+    left: 240px;
+    top: 24px;
+}
+
+.cell-5 {
+    left: 300px;
+    top: 24px;
+}
+
+.cell-6 {
+    left: 360px;
+    top: 24px;
+}
+
+.cell-7 {
+    left: 420px;
+    top: 24px;
+}
+
+.cell-8 {
+    left: 480px;
+    top: 24px;
+}
+
+.cell-10 {
+    left: 0px;
+    top: 47px;
+}
+
+.cell-11 {
+    left: 60px;
+    top: 47px;
+}
+
+.cell-12 {
+    left: 120px;
+    top: 47px;
+}
+
+.cell-13 {
+    left: 180px;
+    top: 47px;
+}
+
+.cell-14 {
+    left: 240px;
+    top: 47px;
+}
+
+.cell-15 {
+    left: 300px;
+    top: 47px;
+}
+
+.cell-16 {
+    left: 360px;
+    top: 47px;
+}
+
+.cell-17 {
+    left: 420px;
+    top: 47px;
+}
+
+.cell-18 {
+    left: 480px;
+    top: 47px;
+}
+
+.cell-20 {
+    left: 0px;
+    top: 70px;
+}
+
+.cell-21 {
+    left: 60px;
+    top: 70px;
+}
+
+.cell-22 {
+    left: 120px;
+    top: 70px;
+}
+
+.cell-23 {
+    left: 180px;
+    top: 70px;
+}
+
+.cell-24 {
+    left: 240px;
+    top: 70px;
+}
+
+.cell-25 {
+    left: 300px;
+    top: 70px;
+}
+
+.cell-26 {
+    left: 360px;
+    top: 70px;
+}
+
+.cell-27 {
+    left: 420px;
+    top: 70px;
+}
+
+.cell-28 {
+    left: 480px;
+    top: 70px;
+}
+
+.cell-30 {
+    left: 0px;
+    top: 93px;
+}
+
+.cell-31 {
+    left: 60px;
+    top: 93px;
+}
+
+.cell-32 {
+    left: 120px;
+    top: 93px;
+}
+
+.cell-33 {
+    left: 180px;
+    top: 93px;
+}
+
+.cell-34 {
+    left: 240px;
+    top: 93px;
+}
+
+.cell-35 {
+    left: 300px;
+    top: 93px;
+}
+
+.cell-36 {
+    left: 360px;
+    top: 93px;
+}
+
+.cell-37 {
+    left: 420px;
+    top: 93px;
+}
+
+.cell-38 {
+    left: 480px;
+    top: 93px;
+}
+
+.cell-40 {
+    left: 0px;
+    top: 116px;
+}
+
+.cell-41 {
+    left: 60px;
+    top: 116px;
+}
+
+.cell-42 {
+    left: 120px;
+    top: 116px;
+}
+
+.cell-43 {
+    left: 180px;
+    top: 116px;
+}
+
+.cell-44 {
+    left: 240px;
+    top: 116px;
+}
+
+.cell-45 {
+    left: 300px;
+    top: 116px;
+}
+
+.cell-46 {
+    left: 360px;
+    top: 116px;
+}
+
+.cell-47 {
+    left: 420px;
+    top: 116px;
+}
+
+.cell-48 {
+    left: 480px;
+    top: 116px;
+}
+
+.cell-50 {
+    left: 0px;
+    top: 139px;
+}
+
+.cell-51 {
+    left: 60px;
+    top: 139px;
+}
+
+.cell-52 {
+    left: 120px;
+    top: 139px;
+}
+
+.cell-53 {
+    left: 180px;
+    top: 139px;
+}
+
+.cell-54 {
+    left: 240px;
+    top: 139px;
+}
+
+.cell-55 {
+    left: 300px;
+    top: 139px;
+}
+
+.cell-56 {
+    left: 360px;
+    top: 139px;
+}
+
+.cell-57 {
+    left: 420px;
+    top: 139px;
+}
+
+.cell-58 {
+    left: 480px;
+    top: 139px;
+}
+
+.cell-60 {
+    left: 0px;
+    top: 162px;
+}
+
+.cell-61 {
+    left: 60px;
+    top: 162px;
+}
+
+.cell-62 {
+    left: 120px;
+    top: 162px;
+}
+
+.cell-63 {
+    left: 180px;
+    top: 162px;
+}
+
+.cell-64 {
+    left: 240px;
+    top: 162px;
+}
+
+.cell-65 {
+    left: 300px;
+    top: 162px;
+}
+
+.cell-66 {
+    left: 360px;
+    top: 162px;
+}
+
+.cell-67 {
+    left: 420px;
+    top: 162px;
+}
+
+.cell-68 {
+    left: 480px;
+    top: 162px;
+}
+
+.cell-70 {
+    left: 0px;
+    top: 185px;
+}
+
+.cell-71 {
+    left: 60px;
+    top: 185px;
+}
+
+.cell-72 {
+    left: 120px;
+    top: 185px;
+}
+
+.cell-73 {
+    left: 180px;
+    top: 185px;
+}
+
+.cell-74 {
+    left: 240px;
+    top: 185px;
+}
+
+.cell-75 {
+    left: 300px;
+    top: 185px;
+}
+
+.cell-76 {
+    left: 360px;
+    top: 185px;
+}
+
+.cell-77 {
+    left: 420px;
+    top: 185px;
+}
+
+.cell-78 {
+    left: 480px;
+    top: 185px;
+}
+
+.cell-80 {
+    left: 0px;
+    top: 208px;
+}
+
+.cell-81 {
+    left: 60px;
+    top: 208px;
+}
+
+.cell-82 {
+    left: 120px;
+    top: 208px;
+}
+
+.cell-83 {
+    left: 180px;
+    top: 208px;
+}
+
+.cell-84 {
+    left: 240px;
+    top: 208px;
+}
+
+.cell-85 {
+    left: 300px;
+    top: 208px;
+}
+
+.cell-86 {
+    left: 360px;
+    top: 208px;
+}
+
+.cell-87 {
+    left: 420px;
+    top: 208px;
+}
+
+.cell-88 {
+    left: 480px;
+    top: 208px;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
+
+body {
+    color: #FFF;
+    background-color: #56ccf2;
+    background-image: radial-gradient(circle, #56ccf2 0%, #2f80ed 100%);
+}
+
+.hot-air-ballon {
+    width: 400px;
+    text-align: center;
+}

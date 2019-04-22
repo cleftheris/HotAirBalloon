@@ -1,0 +1,18 @@
+@import 'clouds';
+@import 'basket';
+
+html, body {margin: 0; padding: 0; }
+html { height: 100%; } body { min-height: 100%; }
+body {
+    color: #FFF;
+    background-color:#56ccf2;
+    background-image: radial-gradient(circle, #56ccf2 0%, #2f80ed 100%);
+}
+//https://uigradients.com/#BlueSkies
+//https://uigradients.com/#Telegram #1c92d2 → #f2fcfe
+
+
+.hot-air-ballon {
+    width:400px;
+    text-align: center;
+}
