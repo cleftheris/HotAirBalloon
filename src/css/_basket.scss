@@ -1,48 +1,47 @@
-$basket-background: lightgray;
-$cell-width: 60px;
-$cell-height: 24px;
+$red1:#a04129;
+$red2:#f26645;
+$brown:#44261ac2;
+$creme:#f5f3db;
 
 .basket-grid {
-    display: table;
-    width: 100%;
-    border-collapse: separate;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+	display: grid;
+	grid-template-columns: repeat(10, calc((100% / 10) - 1px));
+	grid-template-rows: repeat(10, 1.5rem);
+	grid-gap: 1px;
+    grid-auto-flow: dense;
+	max-width: 100%;
+	overflow: hidden;
+
+    background: $brown;
+    color: $red2;
+    font-size: 1rem;
     margin: 0;
-    table-layout: fixed;
-    background: $basket-background;
-    margin-bottom: 10px;
-    font-size: 16px;
+    width: 30rem;
+    text-align: center;
+    border-radius: 0 0 1rem 1rem;
+    padding: 1rem;
 
     [class^="cell"] {
-        padding-top: 2px;
-        padding-bottom: 2px;
-        display: table-cell;
-        border: 1px solid #ededed;
-        border-width: 2px 1px 0 0;
-        font-weight: inherit;
-        width: $cell-width;
-        height: $cell-height;
-        line-height: $cell-height;
-        background: transparent;
-        border-right-color: transparent;
+        background-color: rgba(0, 0, 0, 0.2);
         cursor: pointer;
         transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.4s;
 
-        span {
+        a {
+            display: block;
+            color: inherit;
+            text-decoration: none;
             font-weight: bold;
-            color: #000;
-            position: relative;
-            z-index: 1001;
+            width: 100%;
+            height: 100%;
         }
-    }
-}
 
-[class^="row"] {
-    display: table-row;
-    text-align: center;
-
-    &.rates-selected {
-        background: #464646;
-        color: #fff;
+        &:hover,
+        &:focus-within {
+            color: $brown;
+            background-color: $red2;
+        }
     }
 }
 
@@ -56,21 +55,6 @@ $cell-height: 24px;
     width: 0;
     z-index: 100;
     content: " ";
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
     pointer-events: none;
     transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.4s;
-}
-
-
-
-@for $row from 0 to 9 {
-    @for $cell from 0 to 9 {
-        $number: $row * 10 + $cell;
-        .cell-#{$number} {
-            left: $cell-width * $cell;
-            top: $cell-height * $row + $cell-height - ( $row * 1px);
-        }
-    }
 }
