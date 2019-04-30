@@ -19,12 +19,20 @@
         <input type="number" id="target_text" name="target_text" size="2" class="number target" [(ngModel)]="game.target" />
       </form>
     </div>
-    <div id="basket-grid" class="basket-grid">
+    <div class="basket">
+      <div id="basket-grid" class="basket-grid">
 
-      <div *ngFor="let i of numbers" class="cell" 
-          [ngClass]="{ 'start': game.start == i,
-                       'current': (game.start + game.amount) == i, 
-                       'target': game.target == i }"><a tabindex="{{i}}" href="#{{i}}">{{i}}</a></div>
+        <div *ngFor="let i of numbers" class="cell" 
+            (click)="game.target = i"
+            [ngClass]="{ 'start': game.start == i,
+                         'current': (game.start + game.amount) == i, 
+                         'target': game.target == i,
+                         'over': (game.start + game.amount) > game.target }"><a tabindex="{{i}}" href="#{{i}}">{{i}}</a></div>
+      </div>
+      <div class="overlay-grid">
+        <div class="path-x" [ngStyle]="{ start: game.start, target: game.target } | grid : 'x'"></div>
+        <div class="path-y" [ngStyle]="{ start: game.start, target: game.target } | grid : 'y'"></div>
+      </div>
     </div>
   </div>
 </section>

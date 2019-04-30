@@ -200,3 +200,11 @@ footer {
         color: white;
     }
 }
+.purple {
+    color: $pineapple;
+
+    &.bg {
+        background-color:$pineapple;
+        color: white;
+    }
+}

@@ -3,10 +3,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { TruncatePipe, GridPipe } from './pipes';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TruncatePipe,
+    GridPipe
   ],
   imports: [
     FormsModule,
