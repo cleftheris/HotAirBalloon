@@ -52,6 +52,16 @@ footer {
     right: 0;
 }
 
+.panel {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, .54);
+    margin: 1rem;
+    color: #fff;
+}
+
+
 .screen {
     display: grid;
     align-items: center;
@@ -75,15 +85,7 @@ footer {
         font-size:3rem;
     }
 
-    > div {
-        text-align: center;
-        padding: 1rem;
-        border-radius: 1rem;
-        background-color: rgba(0, 0, 0, .54);
-        margin: 1rem;
-        color: #fff;
-    }
-
+    
     .begin {
         border: 1px solid #fff;
         border-radius: 1px;
@@ -128,8 +130,7 @@ footer {
   100% { transform: translateY(-2rem);}
 } 
 
-@keyframes intro_text 
-{
+@keyframes intro_text {
   0% {transform: scale(0);}
   10% {transform: scale(1.2);}
   20% {transform: scale(1);}
@@ -140,23 +141,54 @@ footer {
     font-family: 'Shadows Into Light', cursive;
     color: white;
     text-align: center;
+    border-radius: 1rem 1rem 0 0;
+    margin: 0;
+    background-color:$brown;
+    padding: 0;
     input {
         -webkit-appearance: none;
         -webkit-rtl-ordering: logical;
         background-color: transparent;
-        padding: 0;
+        padding: 0 .5rem;
         border: none;
         color: white;
         font-size: inherit;
         font-family: inherit;
         display: inline;
-        width: 3rem;
-        text-align: left;
+        max-width: 8rem;
+        text-align: right;
+        margin-right: 1rem;
     }
     input[type=number]::-webkit-inner-spin-button, 
     input[type=number]::-webkit-outer-spin-button { 
         -webkit-appearance: none; 
         margin: 0; 
+    }
+
+    ::-webkit-input-placeholder { /* Edge */
+        color: #fff;
+    } 
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #fff;
+    }
+    ::placeholder {
+        color: #fff;
+    }
+
+    .number { 
+        &.start {
+            color:$cyan-cornflower-blue;
+        }
+        &.target {
+            color: $red2;
+        }
+        &.amount {
+            color:$orange-yellow;
+            
+            &.over {
+                color:$infra-red;    
+            }
+        }
     }
 }
 

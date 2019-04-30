@@ -1,5 +1,5 @@
 <section id="splash" class="screen splash">
-  <div>
+  <div class="panel">
     <h1><span class="red">Hot</span> <span class="orange">air</span> <span class="green">balloon</span>
       <strong>number</strong> <span class="blue">game</span></h1>
     <p>The game is based on the work of <em>Apanti Kampisopoulou</em><br />press start to begin</p>
@@ -12,11 +12,12 @@
   <div>
     <div class="problem-panel">
       <form>
-        <input type="number" id="start_text" name="start_text" size="2" class="number start" [(ngModel)]="game.start" />
+        <input name="game_start" type="number" size="2" class="number start" [(ngModel)]="game.start" />
         <span class="operator add">+</span>
-        <input type="number" id="amount_text" name="amount_text" size="2" class="number amount" placeholder="?" [(ngModel)]="game.amount" />
+        <input name="game_amount" type="number" size="2" class="number amount" placeholder="?" [(ngModel)]="game.amount"
+               [ngClass]="{ 'over': (game.start + game.amount) > game.target }" />
         <span class="operator equals">=</span>
-        <input type="number" id="target_text" name="target_text" size="2" class="number target" [(ngModel)]="game.target" />
+        <input name="game_target" type="number" size="2" class="number target" [(ngModel)]="game.target" />
       </form>
     </div>
     <div class="basket">
