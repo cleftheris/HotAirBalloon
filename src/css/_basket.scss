@@ -1,3 +1,4 @@
+@import 'colors';
 $red1:#a04129;
 $red2:#f26645;
 $brown:#44261ac2;
@@ -8,7 +9,7 @@ $creme:#f5f3db;
     position: relative;
 	display: grid;
 	grid-template-columns: repeat(10, calc((100% / 10) - 1px));
-	grid-template-rows: repeat(10, 1.5rem);
+	grid-template-rows: repeat(10, 1.8rem);
 	grid-gap: 1px;
     grid-auto-flow: dense;
 	max-width: 100%;
@@ -16,9 +17,9 @@ $creme:#f5f3db;
 
     background: $brown;
     color: $red2;
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin: 0;
-    width: 30rem;
+    width: 35rem;
     text-align: center;
     border-radius: 0 0 1rem 1rem;
     padding: 1rem;
@@ -27,7 +28,8 @@ $creme:#f5f3db;
         background-color: rgba(0, 0, 0, 0.2);
         cursor: pointer;
         transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.4s;
-
+        display: grid;
+        align-content: center;
         a {
             display: block;
             color: inherit;
@@ -41,6 +43,16 @@ $creme:#f5f3db;
         &:focus-within {
             color: $brown;
             background-color: $red2;
+        }
+
+        &.start {
+            background-color:$ceribbean-green;
+            color: $warm-black;
+        }
+
+        &.target {
+            background-color:$orange-yellow;
+            color: $warm-black;
         }
     }
 }
