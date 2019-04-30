@@ -1,0 +1,490 @@
+#clouds {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    height: 30%;
+    overflow: hidden;
+    animation: FadeIn 3s ease-out;
+    user-select: none;
+    z-index: -1;
+}
+
+@keyframes FadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.cloud {
+    position: absolute;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    height: 70px;
+    animation-duration: 120s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-name: Float, FadeFloat;
+    z-index: 1;
+    fill: #1c92d2;
+}
+
+.cloud.foreground {
+    height: 10%;
+    min-height: 20px;
+    z-index: 3;
+}
+
+.cloud.background {
+    height: 9.09091%;
+    min-height: 8px;
+    animation-duration: 210s;
+}
+
+.cloud:nth-child(10) {
+    animation-delay: -184.61538s;
+    top: 60%;
+}
+
+.cloud.foreground:nth-child(10) {
+    animation-duration: 80s;
+    height: 35%;
+}
+
+.cloud.background:nth-child(10) {
+    animation-duration: 110s;
+    height: -3.40909%;
+}
+
+.cloud:nth-child(9) {
+    animation-delay: -166.15385s;
+    top: 54%;
+}
+
+.cloud.foreground:nth-child(9) {
+    animation-duration: 84s;
+    height: 32.5%;
+}
+
+.cloud.background:nth-child(9) {
+    animation-duration: 114s;
+    height: -2.15909%;
+}
+
+.cloud:nth-child(8) {
+    animation-delay: -147.69231s;
+    top: 48%;
+}
+
+.cloud.foreground:nth-child(8) {
+    animation-duration: 88s;
+    height: 30%;
+}
+
+.cloud.background:nth-child(8) {
+    animation-duration: 118s;
+    height: -0.90909%;
+}
+
+.cloud:nth-child(7) {
+    animation-delay: -129.23077s;
+    top: 42%;
+}
+
+.cloud.foreground:nth-child(7) {
+    animation-duration: 92s;
+    height: 27.5%;
+}
+
+.cloud.background:nth-child(7) {
+    animation-duration: 122s;
+    height: 0.34091%;
+}
+
+.cloud:nth-child(6) {
+    animation-delay: -110.76923s;
+    top: 36%;
+}
+
+.cloud.foreground:nth-child(6) {
+    animation-duration: 96s;
+    height: 25%;
+}
+
+.cloud.background:nth-child(6) {
+    animation-duration: 126s;
+    height: 1.59091%;
+}
+
+.cloud:nth-child(5) {
+    animation-delay: -92.30769s;
+    top: 30%;
+}
+
+.cloud.foreground:nth-child(5) {
+    animation-duration: 100s;
+    height: 22.5%;
+}
+
+.cloud.background:nth-child(5) {
+    animation-duration: 130s;
+    height: 2.84091%;
+}
+
+.cloud:nth-child(4) {
+    animation-delay: -73.84615s;
+    top: 24%;
+}
+
+.cloud.foreground:nth-child(4) {
+    animation-duration: 104s;
+    height: 20%;
+}
+
+.cloud.background:nth-child(4) {
+    animation-duration: 134s;
+    height: 4.09091%;
+}
+
+.cloud:nth-child(3) {
+    animation-delay: -55.38462s;
+    top: 18%;
+}
+
+.cloud.foreground:nth-child(3) {
+    animation-duration: 108s;
+    height: 17.5%;
+}
+
+.cloud.background:nth-child(3) {
+    animation-duration: 138s;
+    height: 5.34091%;
+}
+
+.cloud:nth-child(2) {
+    animation-delay: -36.92308s;
+    top: 12%;
+}
+
+.cloud.foreground:nth-child(2) {
+    animation-duration: 112s;
+    height: 15%;
+}
+
+.cloud.background:nth-child(2) {
+    animation-duration: 142s;
+    height: 6.59091%;
+}
+
+@keyframes Float {
+    from {
+        transform: translateX(100%) translateZ(0);
+    }
+
+    to {
+        transform: translateX(-15%) translateZ(0);
+    }
+}
+
+/*
+  @keyframes Float {
+    from { transform: translateX(100%) translateY(-100%) translateZ(0); }
+    50% { transform: translateX(55%) translateY(0) translateZ(0); }
+    to { transform: translateX(-5%) translateY(-100%) translateZ(0); }
+  }
+  */
+@keyframes FadeFloat {
+    0%, 100% {
+        opacity: 0;
+    }
+
+    5%, 90% {
+        opacity: 1;
+    }
+}
+
+.basket-grid {
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(10, calc((100% / 10) - 1px));
+    grid-template-rows: repeat(10, 1.8rem);
+    grid-gap: 1px;
+    grid-auto-flow: dense;
+    max-width: 100%;
+    overflow: hidden;
+    background: #44261ac2;
+    color: #f26645;
+    font-size: 1.2rem;
+    margin: 0;
+    width: 35rem;
+    text-align: center;
+    border-radius: 0 0 1rem 1rem;
+    padding: 1rem;
+}
+
+.basket-grid [class^="cell"] {
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s;
+    display: grid;
+    align-content: center;
+}
+
+.basket-grid [class^="cell"] a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+}
+
+.basket-grid [class^="cell"]:hover, .basket-grid [class^="cell"]:focus-within {
+    color: #44261ac2;
+    background-color: #f26645;
+}
+
+.basket-grid [class^="cell"].start {
+    background-color: #06D6A0;
+    color: #073B4C;
+}
+
+.basket-grid [class^="cell"].target {
+    background-color: #FFD166;
+    color: #073B4C;
+}
+
+.cell-target {
+    background: rgba(255, 244, 0, 0.2);
+    position: absolute;
+    border: 2px solid #fff400;
+    top: 1px;
+    left: 1px;
+    height: 0;
+    width: 0;
+    z-index: 100;
+    content: " ";
+    pointer-events: none;
+    transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100vh;
+}
+
+body {
+    min-height: 100%;
+}
+
+body {
+    color: #073B4C;
+    background-color: #56ccf2;
+    background-image: radial-gradient(circle, #56ccf2 0%, #2f80ed 100%);
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+}
+
+strong, b {
+    font-weight: 500;
+}
+
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+main {
+    position: relative;
+}
+
+.screen {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    top: 0;
+    position: absolute;
+    transition: 0.45s;
+}
+
+.splash {
+    animation-delay: 1.3s;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    animation-name: intro_text;
+}
+
+.splash h1 {
+    font-size: 3rem;
+}
+
+.splash > div {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.54);
+    margin: 1rem;
+    color: #fff;
+}
+
+.splash a {
+    color: #2CDA9D;
+    text-decoration: none;
+}
+
+.splash a:visited {
+    color: #2CDA9D;
+}
+
+.splash a:hover {
+    color: #20A39E;
+}
+
+.splash .begin {
+    border: 1px solid #fff;
+    border-radius: 1px;
+    color: #fff;
+    background: transparent;
+    text-transform: uppercase;
+    padding: 1rem 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+}
+
+.game {
+    transform: translateY(100vh);
+    grid-template-rows: 1fr 1.5fr;
+}
+
+.go .splash {
+    transform: translateY(-100vh);
+}
+
+.go .game {
+    transform: translateY(0);
+}
+
+.balloon-graphics {
+    animation: floating 2s ease-in-out 0s infinite alternate;
+    height: 100%;
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+}
+
+.current-position {
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-2rem);
+    }
+}
+
+@keyframes intro_text {
+    0% {
+        transform: scale(0);
+    }
+
+    10% {
+        transform: scale(1.2);
+    }
+
+    20% {
+        transform: scale(1);
+    }
+}
+
+.problem-panel {
+    font-size: 3rem;
+    font-family: 'Shadows Into Light', cursive;
+    color: white;
+    text-align: center;
+}
+
+.problem-panel input {
+    -webkit-appearance: none;
+    -webkit-rtl-ordering: logical;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    color: white;
+    font-size: inherit;
+    font-family: inherit;
+    display: inline;
+    width: 3rem;
+    text-align: left;
+}
+
+.red {
+    color: #EF476F;
+}
+
+.red.bg {
+    background-color: #EF476F;
+    color: #073B4C;
+}
+
+.orange {
+    color: #FFD166;
+}
+
+.orange.bg {
+    background-color: #FFD166;
+    color: #073B4C;
+}
+
+.green {
+    color: #06D6A0;
+}
+
+.green.bg {
+    background-color: #06D6A0;
+    color: #073B4C;
+}
+
+.blue {
+    color: #118AB2;
+}
+
+.blue.bg {
+    background-color: #118AB2;
+    color: white;
+}
+
+.black {
+    color: #073B4C;
+}
+
+.black.bg {
+    background-color: #073B4C;
+    color: white;
+}

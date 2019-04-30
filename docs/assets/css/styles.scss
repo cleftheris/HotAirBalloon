@@ -1,0 +1,242 @@
+@import 'colors';
+@import 'clouds';
+@import 'basket';
+
+html, body {margin: 0; padding: 0; }
+html { height: 100vh; } body { min-height: 100%; }
+body {
+    color: $warm-black;
+    background-color:#56ccf2;
+    background-image: radial-gradient(circle, #56ccf2 0%, #2f80ed 100%);
+    overflow: hidden;    
+    font-family: 'Roboto', sans-serif;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-weight: 300;
+}
+strong, b {
+    font-weight: 500;
+}
+
+a {
+    color: #2CDA9D;
+    text-decoration: none;
+
+    &:visited {
+        color: #2CDA9D;
+    }
+    &:hover {
+        color:#20A39E;
+    }
+}
+//https://uigradients.com/#BlueSkies
+//https://uigradients.com/#Telegram #1c92d2 → #f2fcfe
+
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+main {
+    position: relative;
+}
+
+footer {
+    position: fixed;
+    color: #fff;
+    font-size: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    bottom: 0;
+    right: 0;
+}
+
+.panel {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, .54);
+    margin: 1rem;
+    color: #fff;
+}
+
+
+.screen {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    top: 0;
+    position: absolute;
+    transition: 0.45s;
+}
+.splash {
+    //transform: translateY(0);
+    animation-delay: 1.3s;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    animation-name: intro_text;
+
+    h1 {
+        font-size:3rem;
+    }
+
+    
+    .begin {
+        border: 1px solid #fff;
+        border-radius: 1px;
+        color: #fff;
+        background: transparent;
+        text-transform: uppercase;
+        padding: 1rem 1.5rem;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.5rem;
+        letter-spacing: 4px;
+    }
+}
+.game {
+    transform: translateY(100vh);
+    grid-template-rows: 1fr 1.5fr;
+}
+.go {
+    .splash{
+        transform: translateY(-100vh);
+    }
+    
+    .game {
+        transform: translateY(0);
+    }
+}
+
+.balloon-graphics {
+    animation: floating 2s ease-in-out 0s infinite alternate;
+    height: 100%;
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+}
+
+.current-position {
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;  
+    z-index: 100;
+}
+
+@keyframes floating {
+  0% { transform: translateY(0);}
+  100% { transform: translateY(-2rem);}
+} 
+
+@keyframes intro_text {
+  0% {transform: scale(0);}
+  10% {transform: scale(1.2);}
+  20% {transform: scale(1);}
+}
+
+.problem-panel {
+    font-size: 3rem;
+    font-family: 'Shadows Into Light', cursive;
+    color: white;
+    text-align: center;
+    border-radius: 1rem 1rem 0 0;
+    margin: 0;
+    background-color:$brown;
+    padding: 0;
+    input {
+        -webkit-appearance: none;
+        -webkit-rtl-ordering: logical;
+        background-color: transparent;
+        padding: 0 .5rem;
+        border: none;
+        color: white;
+        font-size: inherit;
+        font-family: inherit;
+        display: inline;
+        max-width: 8rem;
+        text-align: right;
+        margin-right: 1rem;
+    }
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none; 
+        margin: 0; 
+    }
+
+    ::-webkit-input-placeholder { /* Edge */
+        color: #fff;
+    } 
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #fff;
+    }
+    ::placeholder {
+        color: #fff;
+    }
+
+    .number { 
+        &.start {
+            color:$cyan-cornflower-blue;
+        }
+        &.target {
+            color: $red2;
+        }
+        &.amount {
+            color:$orange-yellow;
+            
+            &.over {
+                color:$infra-red;    
+            }
+        }
+    }
+}
+
+.red {
+    color: $infra-red;
+    
+    &.bg {
+        background-color:$infra-red;
+        color: $warm-black;
+    }
+}
+.orange {
+    color: $orange-yellow;
+    
+    &.bg {
+        background-color:$orange-yellow;
+        color: $warm-black;
+    }
+}
+.green {
+    color: $ceribbean-green;
+    
+    &.bg {
+        background-color:$ceribbean-green;
+        color: $warm-black;
+    }
+}
+.blue {
+    color: $cyan-cornflower-blue;
+    
+    &.bg {
+        background-color:$cyan-cornflower-blue;
+        color: white;
+    }
+}
+.black {
+    color: $warm-black;
+
+    &.bg {
+        background-color:$warm-black;
+        color: white;
+    }
+}
+.purple {
+    color: $pineapple;
+
+    &.bg {
+        background-color:$pineapple;
+        color: white;
+    }
+}
