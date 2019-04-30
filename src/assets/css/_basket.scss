@@ -24,7 +24,7 @@ $creme:#f5f3db;
     border-radius: 0 0 1rem 1rem;
     padding: 1rem;
 
-    [class^="cell"] {
+    .cell {
         background-color: rgba(0, 0, 0, 0.2);
         cursor: pointer;
         transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.4s;

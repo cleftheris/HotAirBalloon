@@ -17,6 +17,18 @@ h1,h2,h3,h4,h5,h6 {
 strong, b {
     font-weight: 500;
 }
+
+a {
+    color: #2CDA9D;
+    text-decoration: none;
+
+    &:visited {
+        color: #2CDA9D;
+    }
+    &:hover {
+        color:#20A39E;
+    }
+}
 //https://uigradients.com/#BlueSkies
 //https://uigradients.com/#Telegram #1c92d2 → #f2fcfe
 
@@ -28,6 +40,16 @@ strong, b {
 
 main {
     position: relative;
+}
+
+footer {
+    position: fixed;
+    color: #fff;
+    font-size: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    bottom: 0;
+    right: 0;
 }
 
 .screen {
@@ -60,18 +82,6 @@ main {
         background-color: rgba(0, 0, 0, .54);
         margin: 1rem;
         color: #fff;
-    }
-
-    a {
-        color: #2CDA9D;
-        text-decoration: none;
-
-        &:visited {
-            color: #2CDA9D;
-        }
-        &:hover {
-            color:#20A39E;
-        }
     }
 
     .begin {
@@ -110,6 +120,7 @@ main {
 .current-position {
     grid-row: 1 / 1;
     grid-column: 1 / 1;  
+    z-index: 100;
 }
 
 @keyframes floating {
@@ -141,6 +152,11 @@ main {
         display: inline;
         width: 3rem;
         text-align: left;
+    }
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none; 
+        margin: 0; 
     }
 }
 
