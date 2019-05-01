@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IGame } from './models';
+import { IGame, Game } from './models';
 
 @Component({
   selector: '#app-root',
@@ -12,15 +12,15 @@ export class AppComponent implements OnInit {
   numbers: number[];
 
   ngOnInit(): void {
-    this.game = {
-      start: 0,
-      target: 0,
-      amount: undefined
-    };
+    this.game = new Game();
     this.numbers = Array.from(Array(10).keys())
                         .reverse()
                         .map(i => Array.from(Array(10).keys())
                                        .map(x => 10 * i + x))
                         .reduce((pv, cv) => pv.concat(...cv), []);
+  }
+
+  isNumber(value: number) {
+    return !Number.isNaN(value);
   }
 }

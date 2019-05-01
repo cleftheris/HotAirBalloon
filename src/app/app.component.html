@@ -2,20 +2,28 @@
   <div class="panel">
     <h1><span class="red">Hot</span> <span class="orange">air</span> <span class="green">balloon</span>
       <strong>number</strong> <span class="blue">game</span></h1>
-    <p>The game is based on the work of <em>Apanti Kampisopoulou</em><br />press start to begin</p>
+    <p>The game is based on the work of <em>Aspanti Kampisopoulou</em><br />press start to begin</p>
     <button class="begin" onclick="document.body.classList.add('go')">START</button>
   </div>
 </section>
 <section id="game" class="screen game">
-  <span id="current_position" class="current-position">{{game.start + game.amount}}</span>
-  <img id="balloon-graphics" class="balloon-graphics" src="./assets/img/balloon.svg" />
+  <div class="balloon" [ngClass]="{ 'pyro': (game.start + game.amount) === game.target }">
+      <span id="current_position" class="current-position" 
+            *ngIf="isNumber(game.start + game.amount)"
+            [ngClass]="{ 'over': (game.start + game.amount) > game.target,
+                         'match': (game.start + game.amount) === game.target }">{{game.start + game.amount}}</span>    
+      <div class="before"></div>
+      <div class="after"></div>
+  </div>
   <div>
     <div class="problem-panel">
+      <button class="refresh" title="reset" (click)="game.reset()"></button>
       <form>
         <input name="game_start" type="number" size="2" class="number start" [(ngModel)]="game.start" />
         <span class="operator add">+</span>
         <input name="game_amount" type="number" size="2" class="number amount" placeholder="?" [(ngModel)]="game.amount"
-               [ngClass]="{ 'over': (game.start + game.amount) > game.target }" />
+               [ngClass]="{ 'over': (game.start + game.amount) > game.target,
+                            'match': (game.start + game.amount) === game.target }" />
         <span class="operator equals">=</span>
         <input name="game_target" type="number" size="2" class="number target" [(ngModel)]="game.target" />
       </form>

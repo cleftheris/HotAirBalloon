@@ -1,6 +1,5 @@
 @import 'colors';
 @import 'clouds';
-@import 'basket';
 
 html, body {margin: 0; padding: 0; }
 html { height: 100vh; } body { min-height: 100%; }
@@ -76,7 +75,7 @@ footer {
 .splash {
     //transform: translateY(0);
     animation-delay: 1.3s;
-    animation-duration: 1s;
+    animation-duration: 2.2s;
     animation-iteration-count: 1;
     animation-fill-mode: both;
     animation-name: intro_text;
@@ -112,17 +111,51 @@ footer {
     }
 }
 
-.balloon-graphics {
+.balloon {
     animation: floating 2s ease-in-out 0s infinite alternate;
     height: 100%;
+    width: 100%;
     grid-row: 1 / 1;
     grid-column: 1 / 1;
-}
+    background-image: url("./assets/img/balloon.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto;
+    display: grid;
+    align-content: center;
+    align-items: center; 
+    text-align: center;
+    
+    .current-position {
+        
+        transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.4s;
+        /*font-family: 'Montserrat', sans-serif;*/
+        display: inline-block;
+        font-size: 6rem;
+        font-family: 'Shadows Into Light', cursive;
+        margin-top: -6rem;
 
-.current-position {
-    grid-row: 1 / 1;
-    grid-column: 1 / 1;  
-    z-index: 100;
+        -webkit-text-stroke: 1px $warm-black;
+        color: white;
+        text-shadow:
+            3px 3px 0 $warm-black,
+            -1px -1px 0 $warm-black,  
+            1px -1px 0 $warm-black,
+            -1px 1px 0 $warm-black,
+            1px 1px 0 $warm-black;
+
+            
+        &.over { color:$infra-red; }
+        &.match {
+            color:$ceribbean-green;
+            animation: color 2s infinite;
+            @keyframes color {
+                70% {
+                  color: #fff;
+                }
+              }
+        }
+    }
 }
 
 @keyframes floating {
@@ -134,62 +167,6 @@ footer {
   0% {transform: scale(0);}
   10% {transform: scale(1.2);}
   20% {transform: scale(1);}
-}
-
-.problem-panel {
-    font-size: 3rem;
-    font-family: 'Shadows Into Light', cursive;
-    color: white;
-    text-align: center;
-    border-radius: 1rem 1rem 0 0;
-    margin: 0;
-    background-color:$brown;
-    padding: 0;
-    input {
-        -webkit-appearance: none;
-        -webkit-rtl-ordering: logical;
-        background-color: transparent;
-        padding: 0 .5rem;
-        border: none;
-        color: white;
-        font-size: inherit;
-        font-family: inherit;
-        display: inline;
-        max-width: 8rem;
-        text-align: right;
-        margin-right: 1rem;
-    }
-    input[type=number]::-webkit-inner-spin-button, 
-    input[type=number]::-webkit-outer-spin-button { 
-        -webkit-appearance: none; 
-        margin: 0; 
-    }
-
-    ::-webkit-input-placeholder { /* Edge */
-        color: #fff;
-    } 
-    :-ms-input-placeholder { /* Internet Explorer 10-11 */
-        color: #fff;
-    }
-    ::placeholder {
-        color: #fff;
-    }
-
-    .number { 
-        &.start {
-            color:$cyan-cornflower-blue;
-        }
-        &.target {
-            color: $red2;
-        }
-        &.amount {
-            color:$orange-yellow;
-            
-            &.over {
-                color:$infra-red;    
-            }
-        }
-    }
 }
 
 .red {
@@ -240,3 +217,6 @@ footer {
         color: white;
     }
 }
+
+@import 'basket';
+@import 'fireworks';

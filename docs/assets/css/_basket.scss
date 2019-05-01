@@ -4,6 +4,84 @@ $red2:#f26645;
 $brown:#44261ac2;
 $creme:#f5f3db;
 
+.problem-panel {
+    position: relative;
+    font-size: 3rem;
+    font-family: 'Shadows Into Light', cursive;
+    color: white;
+    text-align: center;
+    border-radius: 1rem 1rem 0 0;
+    margin: 0;
+    background-color:$brown;
+    padding: 0;
+    input {
+        -webkit-appearance: none;
+        -webkit-rtl-ordering: logical;
+        background-color: transparent;
+        padding: 0 .5rem;
+        border: none;
+        color: white;
+        font-size: inherit;
+        font-family: inherit;
+        display: inline;
+        max-width: 8rem;
+        text-align: right;
+        margin-right: 1rem;
+        font-weight: bold;
+        &:focus {
+            border: none;
+            outline: none;
+          }
+    }
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none; 
+        margin: 0; 
+    }
+
+    ::-webkit-input-placeholder { color: #fff; } /* Edge */ 
+    :-ms-input-placeholder { color: #fff; } /* Internet Explorer 10-11 */
+    ::placeholder { color: #fff; }
+
+    .number { 
+        &.start {
+            color:$cyan-cornflower-blue;
+        }
+        &.target {
+            color: $red2;
+        }
+        &.amount {
+            color:$orange-yellow;
+            &.over { color:$infra-red; }
+            &.match { color:$ceribbean-green; }
+        }
+    }
+
+    button.refresh {
+        position: absolute;
+        padding: 0;
+        width: 1rem;
+        height: 1rem;
+        top: 1rem;
+        left: 1rem;
+        border: none;
+        background-color: transparent;
+        background-image: url("./assets/img/reload-alt.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        opacity: 0.6;
+        transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.4s;
+        &:hover {
+            opacity: 1;
+        } 
+        &:focus {
+            border: none;
+            outline: none;
+        }
+    }
+}
+
 .basket {
     position: relative;
 }
@@ -84,27 +162,10 @@ $creme:#f5f3db;
         &.current {
             background-color:$orange-yellow;
             color: $warm-black;
-            &.target {
-                background-color:$ceribbean-green;    
-            }
-            &.over {
-                background-color:$infra-red;    
-            }
+            &.target { background-color:$ceribbean-green; }
+            &.over { background-color:$infra-red; }
         }
 
     }
 
-}
-
-.cell-target {
-    background: rgba(255, 244, 0, 0.20);
-    position: absolute;
-    border: 2px solid #fff400;
-    top: 1px;
-    left: 1px;
-    height: 0;
-    width: 0;
-    z-index: 100;
-    content: " ";
-    transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.4s;
 }
