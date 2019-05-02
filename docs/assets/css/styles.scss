@@ -104,6 +104,7 @@ footer {
 .go {
     .splash{
         transform: translateY(-100vh);
+        opacity: 0;
     }
     
     .game {
@@ -220,3 +221,4 @@ footer {
 
 @import 'basket';
 @import 'fireworks';
+@import 'switch';
