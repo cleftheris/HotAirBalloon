@@ -57,13 +57,11 @@ $creme:#f5f3db;
         }
     }
 
-    button.refresh {
-        position: absolute;
+    .command {
+        z-index: 100;
         padding: 0;
         width: 1rem;
         height: 1rem;
-        top: 1rem;
-        left: 1rem;
         border: none;
         background-color: transparent;
         background-image: url("./assets/img/reload-alt.svg");
@@ -78,6 +76,25 @@ $creme:#f5f3db;
         &:focus {
             border: none;
             outline: none;
+        }
+
+        &.refresh {
+            background-image: url("./assets/img/reload-alt.svg");
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+        }
+        &.up {
+            background-image: url("./assets/img/arrow-up.svg");
+            position: absolute;
+            top: 2.5rem;
+            left: 1rem;
+        }
+        &.down {
+            background-image: url("./assets/img/arrow-down.svg");
+            position: absolute;
+            top: 4rem;
+            left: 1rem;
         }
     }
 }

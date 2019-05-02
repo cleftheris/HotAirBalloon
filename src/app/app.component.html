@@ -17,7 +17,9 @@
   </div>
   <div>
     <div class="problem-panel">
-      <button class="refresh" title="reset" (click)="game.reset()"></button>
+      <button class="command refresh" title="reset" (click)="game.reset()"></button>
+      <button class="command up" title="move up" (click)="game.up()"></button>
+      <button class="command down" title="move down" (click)="game.down()"></button>
       <form>
         <input name="game_start" type="number" size="2" class="number start" [(ngModel)]="game.start" />
         <span class="operator add">+</span>

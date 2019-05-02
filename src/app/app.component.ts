@@ -8,7 +8,7 @@ import { IGame, Game } from './models';
 })
 export class AppComponent implements OnInit {
   title = 'HotAirBalloon';
-  game: IGame = null;
+  game: Game = null;
   numbers: number[];
 
   ngOnInit(): void {
