@@ -57,6 +57,18 @@ $creme:#f5f3db;
         }
     }
 
+    .toggle-operator {
+        position: absolute;
+        right: 0rem;
+        top: -1.5rem;
+        font-size: 1rem;
+        font-family: 'Roboto';
+        display: flex;
+
+        > span {
+            margin-right: 0.5rem
+        }
+    }
     .command {
         z-index: 100;
         padding: 0;

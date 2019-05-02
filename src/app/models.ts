@@ -9,14 +9,23 @@ export class Game implements IGame {
     start: number;
     target: number;
     amount?: number;
+    isSubtract: boolean;
 
     constructor() {
+        this.isSubtract = false;
         this.reset();
     }
 
     reset() {
-        const s = this.getRandomIntInclusive(0, 80);
-        const t = this.getRandomIntInclusive(s + 1, 99);
+        let s = 0;
+        let t = 0;
+        if (!this.isSubtract) {
+            s = this.getRandomIntInclusive(0, 80);
+            t = this.getRandomIntInclusive(s + 1, 99);
+        } else {
+            s = this.getRandomIntInclusive(21, 99);
+            t = this.getRandomIntInclusive(0, s - 1);
+        }
         this.start = s;
         this.target = t;
         this.amount = undefined;
