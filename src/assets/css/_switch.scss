@@ -13,7 +13,6 @@
   
   .switch {
     display: inline-block;
-    font-size: 20px; /* 1 */
     height: 1em;
     width: 2em;
     background: #BDB9A6;
@@ -21,8 +20,10 @@
   }
   
   .switch div {
+    position: relative;
     height: 1em;
-    width: 1em;
+    width: 1em;    
+    top: -1em;
     border-radius: 1em;
     background: #fff;
     box-shadow: 0 0.1em 0.3em rgba(0,0,0,0.3);
@@ -31,9 +32,61 @@
             transition: all 300ms;
   }
   
-  .switch input:checked + div {
-    -webkit-transform: translate3d(100%, 0, 0);
-       -moz-transform: translate3d(100%, 0, 0);
-            transform: translate3d(100%, 0, 0);
+  .switch-label {
+    position: relative;
+    display: block;
+    height: inherit;
+    font-size: 1em;
+    text-transform: uppercase;
+    background: transparent;
+    border-radius: inherit;
+    -webkit-transition: 0.15s ease-out;
+    -moz-transition: 0.15s ease-out;
+    -o-transition: 0.15s ease-out;
+    transition: 0.15s ease-out;
+    -webkit-transition-property: opacity background;
+    -moz-transition-property: opacity background;
+    -o-transition-property: opacity background;
+    transition-property: opacity background;
   }
+  .switch-label:before, .switch-label:after {
+    position: absolute;
+    top: 50%;
+    margin-top: -.5em;
+    line-height: 1;
+    -webkit-transition: inherit;
+    -moz-transition: inherit;
+    -o-transition: inherit;
+    transition: inherit;
+  }
+  .switch-label:before {
+    content: attr(data-off);
+    right: 0.3em;
+    color: inherit;
+    text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+  }
+  .switch-label:after {
+    content: attr(data-on);
+    left: 0.4em;
+    color: inherit;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+  }
+  
+  
+.switch input:checked ~ div {
+  -webkit-transform: translate3d(100%, 0, 0);
+      -moz-transform: translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0);
+}
+  
+.switch input:checked ~ .switch-label {
+  /*background: #47a8d8;*/
+}
+.switch input:checked ~ .switch-label:before {
+  opacity: 0;
+}
+.switch input:checked ~ .switch-label:after {
+  opacity: 1;
+}
   

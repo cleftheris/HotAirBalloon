@@ -1,7 +1,7 @@
 @import 'colors';
 $red1:#a04129;
 $red2:#f26645;
-$brown:#44261ac2;
+$brown:rgba(68, 38, 26, 0.761);
 $creme:#f5f3db;
 
 .problem-panel {
@@ -59,14 +59,37 @@ $creme:#f5f3db;
 
     .toggle-operator {
         position: absolute;
-        right: 0rem;
-        top: -1.5rem;
+        right: 0.4rem;
+        top: 0.4rem;
         font-size: 1rem;
         font-family: 'Roboto';
         display: flex;
+        color: $warm-black;
+        position: absolute;
 
         > span {
-            margin-right: 0.5rem
+            margin-right: 0.5rem;
+        }
+
+        .switch input + div {
+            background-color: $ceribbean-green;
+            color: $warm-black;
+
+            &::after{
+                display: inline-block;
+                position: absolute;
+                content: "+"
+            }
+        }
+        .switch input:checked + div {
+            background-color: $infra-red;
+            color: $warm-black;
+            
+            &::after{
+                display: inline-block;
+                position: absolute;
+                content: "-"
+            }
         }
     }
     .command {

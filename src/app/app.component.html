@@ -21,8 +21,11 @@
       <button class="command up" title="move up" (click)="game.up()"></button>
       <button class="command down" title="move down" (click)="game.down()"></button>
       <div class="toggle-operator">
-        <span>{{game.isSubtract ? 'subtract' : 'add'}}</span>
-        <label class="switch"><input type="checkbox" [(ngModel)]="game.isSubtract" (onchange)="game.reset()" /><div></div></label>
+        <label class="switch" title="{{game.isSubtract ? 'subtract' : 'add'}}">
+          <input type="checkbox" [(ngModel)]="game.isSubtract" (ngModelChange)="game.reset()" />
+          <span class="switch-label" data-on="-" data-off="+"></span>
+          <div></div>
+        </label>
       </div>
       <form>
         <input name="game_start" type="number" size="2" class="number start" [(ngModel)]="game.start" />
