@@ -7,11 +7,11 @@
   </div>
 </section>
 <section id="game" class="screen game">
-  <div class="balloon" [ngClass]="{ 'pyro': (game.start + game.amount) === game.target }">
+  <div class="balloon" [ngClass]="{ 'pyro': (game.start + game.operator * game.amount) === game.target }">
       <span id="current_position" class="current-position" 
             *ngIf="isNumber(game.start + game.amount)"
-            [ngClass]="{ 'over': (game.start + game.amount) > game.target,
-                         'match': (game.start + game.amount) === game.target }">{{game.start + game.amount}}</span>    
+            [ngClass]="{ 'over': (game.start + game.operator * game.amount) > game.target,
+                         'match': (game.start + game.operator * game.amount) === game.target }">{{game.start + game.operator * game.amount}}</span>    
       <div class="before"></div>
       <div class="after"></div>
   </div>
@@ -31,8 +31,8 @@
         <input name="game_start" type="number" size="2" class="number start" [(ngModel)]="game.start" />
         <span class="operator add">{{game.isSubtract ? '-' : '+' }}</span>
         <input name="game_amount" type="number" size="2" class="number amount" placeholder="?" [(ngModel)]="game.amount"
-               [ngClass]="{ 'over': (game.start + game.amount) > game.target,
-                            'match': (game.start + game.amount) === game.target }" />
+               [ngClass]="{ 'over': (game.start + game.operator * game.amount) > game.target,
+                            'match': (game.start + game.operator * game.amount) === game.target }" />
         <span class="operator equals">=</span>
         <input name="game_target" type="number" size="2" class="number target" [(ngModel)]="game.target" />
       </form>
@@ -43,9 +43,9 @@
         <div *ngFor="let i of numbers" class="cell" 
             (click)="game.target = i"
             [ngClass]="{ 'start': game.start == i,
-                         'current': (game.start + game.amount) == i, 
+                         'current': (game.start + game.operator * game.amount) == i, 
                          'target': game.target == i,
-                         'over': (game.start + game.amount) > game.target }"><a tabindex="{{i}}" href="#{{i}}">{{i}}</a></div>
+                         'over': (game.start + game.operator * game.amount) > game.target }"><a tabindex="{{i}}" href="#{{i}}">{{i}}</a></div>
       </div>
       <div class="overlay-grid">
         <div class="path-x" [ngStyle]="{ start: game.start, target: game.target } | grid : 'x'"></div>

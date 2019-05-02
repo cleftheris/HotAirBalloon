@@ -16,6 +16,10 @@ export class Game implements IGame {
         this.reset();
     }
 
+    get operator(): number {
+        return this.isSubtract ? -1 : 1;
+    }
+
     reset() {
         let s = 0;
         let t = 0;
@@ -35,8 +39,9 @@ export class Game implements IGame {
         if (isNaN(this.amount)) {
             this.amount = 0;
         }
-        const delta = this.target - this.start - this.amount;
-        const tens = Math.floor(this.target / 10) - Math.floor((this.start + this.amount) / 10);
+        const progress = this.start + this.operator * this.amount;
+        const delta = this.operator * (this.target -  progress);
+        const tens = this.operator * (Math.floor(this.target / 10) - Math.floor(progress / 10));
         if (tens > 0) {
             this.amount += 10;
         } else if (delta !== 0) {
@@ -48,8 +53,9 @@ export class Game implements IGame {
         if (isNaN(this.amount)) {
             this.amount = 0;
         }
-        const tens = Math.floor((this.start + this.amount) / 10) - Math.floor(this.start / 10);
-        const delta = this.amount - (tens * 10);
+        const progress = this.start + this.operator * this.amount;
+        const tens = this.operator * (Math.floor(progress / 10) - Math.floor(this.start / 10));
+        const delta = this.amount - tens * 10;
         if (delta !== 0) {
             this.amount += (delta > 0 ? -1 : 1);
         } else if (tens > 0) {
